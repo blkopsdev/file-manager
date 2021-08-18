@@ -8,7 +8,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
   
     <title>{{ config('app.name', 'File Manager') }}</title>
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
@@ -52,21 +51,15 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </li>
                         @endguest
                     </ul>
@@ -90,5 +83,7 @@
         });
       });
     </script>
+
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 </body>
 </html>
