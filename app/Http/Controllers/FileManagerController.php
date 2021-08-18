@@ -13,7 +13,7 @@ class FileManagerController extends Controller
      */
     public function index()
     {
-        return view('filemanager');
+        return view('home');
     }
 
     /**
