@@ -14,9 +14,9 @@ use App\Http\Controllers\FileManagerController;
 |
 */
 
-Route::get('/', 'FileManagerController@index')->middleware('auth');
+Route::get('/', [FileManagerController::class, 'index'])->middleware('auth');
 Route::get('/home', [FileManagerController::class, 'index'])->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
