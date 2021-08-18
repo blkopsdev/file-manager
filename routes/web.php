@@ -14,10 +14,8 @@ use App\Http\Controllers\FileManagerController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('filemanager', [FileManagerController::class, 'index']);
+Route::get('/', 'FileManagerController@index')->middleware('auth');
+Route::get('/home', [FileManagerController::class, 'index'])->middleware('auth');
 
 Auth::routes();
 
