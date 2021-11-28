@@ -11,9 +11,14 @@ class FileManagerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function home()
     {
         return view('home');
+    }
+
+    public function index()
+    {
+        return view('filemanager');
     }
 
     /**
